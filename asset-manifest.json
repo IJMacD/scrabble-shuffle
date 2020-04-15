@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/scrabble-shuffle/static/css/main.4122cfe1.chunk.css",
-    "main.js": "/scrabble-shuffle/static/js/main.a9c659f6.chunk.js",
-    "main.js.map": "/scrabble-shuffle/static/js/main.a9c659f6.chunk.js.map",
+    "main.js": "/scrabble-shuffle/static/js/main.fc8e44a2.chunk.js",
+    "main.js.map": "/scrabble-shuffle/static/js/main.fc8e44a2.chunk.js.map",
     "runtime-main.js": "/scrabble-shuffle/static/js/runtime-main.1ed9cec0.js",
     "runtime-main.js.map": "/scrabble-shuffle/static/js/runtime-main.1ed9cec0.js.map",
     "static/js/2.5f8a5db2.chunk.js": "/scrabble-shuffle/static/js/2.5f8a5db2.chunk.js",
     "static/js/2.5f8a5db2.chunk.js.map": "/scrabble-shuffle/static/js/2.5f8a5db2.chunk.js.map",
     "index.html": "/scrabble-shuffle/index.html",
-    "precache-manifest.a4c466b328d21140f17cbb30a060f1db.js": "/scrabble-shuffle/precache-manifest.a4c466b328d21140f17cbb30a060f1db.js",
+    "precache-manifest.4a012af4b4793f693ca6d45c01d236b8.js": "/scrabble-shuffle/precache-manifest.4a012af4b4793f693ca6d45c01d236b8.js",
     "service-worker.js": "/scrabble-shuffle/service-worker.js",
     "static/css/main.4122cfe1.chunk.css.map": "/scrabble-shuffle/static/css/main.4122cfe1.chunk.css.map",
     "static/js/2.5f8a5db2.chunk.js.LICENSE.txt": "/scrabble-shuffle/static/js/2.5f8a5db2.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.1ed9cec0.js",
     "static/js/2.5f8a5db2.chunk.js",
     "static/css/main.4122cfe1.chunk.css",
-    "static/js/main.a9c659f6.chunk.js"
+    "static/js/main.fc8e44a2.chunk.js"
   ]
 }
