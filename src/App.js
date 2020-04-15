@@ -9,8 +9,10 @@ function App() {
 
   const [ useRand1, setUseRand1 ]= React.useState(true);
   const [ useRand2, setUseRand2 ]= React.useState(true);
-  const [ useRowSwap, setUseRowSwap ]= React.useState(true);
-  const [ useColSwap, setUseColSwap ]= React.useState(true);
+  const [ useTwoShuffleRow, setUseTwoShuffleRow ]= React.useState(true);
+  const [ useTwoShuffleCol, setUseTwoShuffleCol ]= React.useState(true);
+  const [ useRowSwap, setUseRowSwap ]= React.useState(false);
+  const [ useColSwap, setUseColSwap ]= React.useState(false);
 
   let tiles = TILES;
 
@@ -20,6 +22,14 @@ function App() {
 
   if (useRand2) {
     tiles = shuffle(tiles, getDigits(+rand2));
+  }
+
+  if (useTwoShuffleRow) {
+    tiles = twoShuffleRow(tiles);
+  }
+
+  if (useTwoShuffleCol) {
+    tiles = twoShuffleCol(tiles);
   }
 
   if (useRowSwap) {
@@ -43,6 +53,14 @@ function App() {
         <span>Random 2 (Row)</span>
         <input type="text" value={rand2} onChange={e => setRand2(e.target.value)} />
         <button onClick={() => setRand2(Math.random().toString())}>Random</button>
+      </label>
+      <label>
+        <input type="checkbox" checked={useTwoShuffleRow} onChange={() => setUseTwoShuffleRow(!useTwoShuffleRow)} />
+        Perform Two Shuffle (Row)
+      </label>
+      <label>
+        <input type="checkbox" checked={useTwoShuffleCol} onChange={() => setUseTwoShuffleCol(!useTwoShuffleCol)} />
+        Perform Two Shuffle (Col)
       </label>
       <label>
         <input type="checkbox" checked={useRowSwap} onChange={() => setUseRowSwap(!useRowSwap)} />
@@ -131,6 +149,40 @@ function shiftTiles (tiles, n) {
   return tiles.repeat(2).substr(10 - n, 10);
 }
 
+function twoShuffleRow (tiles) {
+  const rows = range(10).map(i => tiles.substr(i * 10, 10));
+  const out = [
+    rows[9],
+    rows[7],
+    rows[5],
+    rows[3],
+    rows[1],
+    rows[0],
+    rows[2],
+    rows[4],
+    rows[6],
+    rows[8],
+  ];
+  return out.join("");
+}
+
+function twoShuffleCol (tiles) {
+  const cols = splitCols(tiles);
+  const out = [
+    cols[9],
+    cols[7],
+    cols[5],
+    cols[3],
+    cols[1],
+    cols[0],
+    cols[2],
+    cols[4],
+    cols[6],
+    cols[8],
+  ];
+  return combineCols(out);
+}
+
 function rowSwap (tiles, n) {
   if (n !== 2) {
     throw Error("Swap of anything other than 2 has not been implemented.");
@@ -155,4 +207,18 @@ function colSwap (tiles, n) {
     tmp[i*n] = c;
   }
   return tmp.join("");
+}
+
+function splitCols (tiles) {
+  return range(10).map(i => (
+    range(10).map(j => tiles[j * 10 + i]).join("")
+  ));
+}
+
+function combineCols (cols) {
+  const out = [];
+  for (let i = 0; i < 10; i++) {
+    out.push(cols.map(col => col[i]).join(""));
+  }
+  return out.join("");
 }
